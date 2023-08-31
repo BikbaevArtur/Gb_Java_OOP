@@ -4,20 +4,42 @@ package org.example.Sem_1;
  * Товар
  */
 public class Product {
-    private String name; // Товар
-    private String brand; // Изготовитель
-    private double prise; // строимость
+    protected String name; // Товар
+    protected String brand; // Изготовитель
+    protected double prise; // строимость
 
-    public Product() {
-
-    }
 
     public double getPrise(){
         return prise;
     }
 
     public void setPrise(double prise) {
+        if(prise<100){
+            throw new RuntimeException("Неккоректная цена");
+        }
         this.prise = prise;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        checkName(name);
+    }
+
+    public String getBrand() {
+
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        checkBrand(brand);
+        }
+
+
+    public  Product(){
+        this("Noname");
     }
 
     public Product(String name){
@@ -35,19 +57,39 @@ public class Product {
         else {
             this.prise = prise;
         }
-        if(name == null || name.length()<3){
+        checkName(name);
+        checkBrand(brand);
+
+
+    }
+
+    void  checkName(String name){
+        if(name == null||name.length()<3){
             this.name = "Noname";
         }
         else {
             this.name = name;
         }
-        if(brand == null || brand.length()<3){
+    }
+
+    private void  checkBrand(String brand){
+        if(brand == null||brand.length()<3){
             this.brand = "Noname";
         }
         else {
             this.brand = brand;
         }
     }
+
+    private void  checkPrise(double prise){
+        if(prise < 100){
+            this.prise = 100;
+        }
+        else {
+            this.prise = prise;
+        }
+    }
+
 
     public String displayInfo(){
         return String.format("%s-%s-%.2f",name,brand,prise);
