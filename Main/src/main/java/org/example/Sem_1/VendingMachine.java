@@ -20,4 +20,16 @@ public class VendingMachine {
         }
         return null;
     }
+
+    public ChocolateBar getChocolateBar(String name, int gram){
+        for (Product product: products) {
+            if(product instanceof ChocolateBar){
+                ChocolateBar chocolateBar = (ChocolateBar) product;
+                if(chocolateBar.getName().equals(name)&&chocolateBar.getGram()==gram){
+                    return chocolateBar;
+                }
+            }
+        }
+        return null;
+    }
 }
