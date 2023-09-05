@@ -1,4 +1,4 @@
-package org.example.Sem_2;
+package org.example.Sem_2.Sample_1;
 
 public class Dog extends Animal {
     @Override
