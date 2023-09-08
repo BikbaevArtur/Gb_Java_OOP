@@ -7,8 +7,9 @@ package org.example.Sem_3.task_2;
 public class Worker extends Empoyee {
 
 
-    public Worker(String name, String surName, double salary) {
-        super(name, surName, salary);
+
+    public Worker(String name, String surName, double salary,int age) {
+        super(name, surName, salary,age);
     }
 
     @Override
@@ -18,6 +19,6 @@ public class Worker extends Empoyee {
 
     @Override
     public String toString() {
-        return String.format("%s %s; Рабочий; Среднемесячная зарплата(фиксированная) %.2f",surName,name,salary);
+        return String.format("%s %s %d лет; Рабочий; Среднемесячная зарплата(фиксированная) %.2f",surName,name,age,salary);
     }
 }
