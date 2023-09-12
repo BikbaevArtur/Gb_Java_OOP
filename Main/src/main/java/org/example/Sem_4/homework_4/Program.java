@@ -1,5 +1,8 @@
 package org.example.Sem_4.homework_4;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Program {
 
     /*
@@ -19,8 +22,41 @@ g. Не забываем про метод добавления фрукта в 
 
 Формат сдачи: ссылка на гитхаб проект
     * */
+
+
     public static void main(String[] args) {
+        Box<Apple> appleBox1 = new Box<>();
+        Box<Apple> appleBox2 = new Box<>();
+        Box<Orange> orangeBox1 = new Box<>();
+
+        appleBox1.addFruit(new Apple());
+        appleBox1.addFruit(new Apple());
+        appleBox1.addFruit(new Apple());
+        appleBox1.addFruit(new Apple());
+
+        appleBox2.addFruit(new Apple());
+        appleBox2.addFruit(new Apple());
+        appleBox2.addFruit(new Apple());
+        appleBox2.addFruit(new Apple());
+
+        orangeBox1.addFruit(new Orange());
+        orangeBox1.addFruit(new Orange());
+        orangeBox1.addFruit(new Orange());
+        orangeBox1.addFruit(new Orange());
+
+        System.out.printf("Вес 1-й коробки с яблоками : %.2f\n",appleBox1.getWeight());
+        System.out.printf("Вес 2-й коробки с яблоками : %.2f\n",appleBox2.getWeight());
+
+        appleBox1.transfer(appleBox2);
+
+        System.out.printf("Вес 1-й коробки с яблоками : %.2f\n",appleBox1.getWeight());
+        System.out.printf("Вес 2-й коробки с яблоками : %.2f\n",appleBox2.getWeight());
+
+        System.out.println(orangeBox1.compare(appleBox2));
+
+
+
+
 
     }
-
 }

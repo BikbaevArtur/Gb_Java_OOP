@@ -11,4 +11,5 @@ public abstract class Fruct {
     public Fruct(float weight) {
         this.weight = weight;
     }
+
 }
