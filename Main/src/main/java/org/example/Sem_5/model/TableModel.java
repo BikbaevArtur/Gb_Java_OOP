@@ -37,17 +37,35 @@ public class TableModel implements Model {
     public int reservationTable(Date reservationData, int tableNo, String name) {
         for (Table table : loadTables()
         ) {
-            if(table.getNo()==tableNo){
-                Reservation reservation = new Reservation(reservationData,name);
+            if (table.getNo() == tableNo) {
+                Reservation reservation = new Reservation(reservationData, name);
                 table.getReservations().add(reservation);
                 return reservation.getId();
             }
 
-        }return -1;
+        }
+        return -1;
         //throw new RuntimeException("Неккоректный номер столика");
     }
 
-    public int changeReservationTable(int oldReservation,Date reservationDate,int tableNo,String name){
-        return 1;//временно
+
+    /**
+     * Поменять бронь
+     * @param oldReservation номер старого резерва(для снятия)
+     * @param reservationDate дата резерва
+     * @param tableNo номер столика
+     * @param name имя
+     * @return
+     */
+    public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
+        for (Table table : loadTables()) {
+            if(table.getNo()==tableNo){
+                Reservation reservation = new Reservation(reservationDate,name);
+                table.getReservations().add(reservation);
+                return reservation.setId(oldReservation);
+
+            }
+        }
+        return -1;//временно
     }
 }

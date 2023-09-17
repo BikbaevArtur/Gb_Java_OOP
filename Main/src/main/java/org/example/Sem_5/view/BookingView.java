@@ -25,7 +25,7 @@ public class BookingView  implements View {
     @Override
     public void printReservationTableResult(int reservationNo) {
         if(reservationNo >0){
-            System.out.printf("Столик успешно забронирован. Номер вашей брони %d",reservationNo);
+            System.out.printf("Столик успешно забронирован. Номер вашей брони %d\n",reservationNo);
         }
         else {
             System.out.println("Не удолось забронировать");;
@@ -37,7 +37,14 @@ public class BookingView  implements View {
 observer.oneReservationTable(orderDate,tableNo,name);
     }
 
+    /**
+     * Действия клиента(пользователь нажал на кнопку отмены бронирования)
+     * @param oldReservation
+     * @param reservation
+     * @param tableNo
+     * @param name
+     */
     public void changeReservationTable(int oldReservation,Date reservation,int tableNo, String name){
-
+        observer.changeReservationTable(oldReservation,reservation,tableNo,name);
     }
 }

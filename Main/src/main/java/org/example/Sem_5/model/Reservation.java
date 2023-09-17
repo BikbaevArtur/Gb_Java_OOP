@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Reservation {
     private static int count=100;
-    private final int id;
+    private  int id;
     {
         id = ++count;
     }
@@ -18,6 +18,11 @@ public class Reservation {
     private String name;
 
     public int getId() {
+        return id;
+    }
+
+    public int setId(int id) {
+        this.id = id;
         return id;
     }
 

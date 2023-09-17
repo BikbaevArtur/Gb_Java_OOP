@@ -25,6 +25,6 @@ public class Table {
 
     @Override
     public String toString() {
-        return String.format(Locale.getDefault(),"Столик %d",no);
+        return String.format(Locale.getDefault(),"Столик %d\n",no);
     }
 }
