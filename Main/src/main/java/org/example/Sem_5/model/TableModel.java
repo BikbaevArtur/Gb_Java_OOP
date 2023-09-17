@@ -57,6 +57,8 @@ public class TableModel implements Model {
      * @param name имя
      * @return
      */
+
+    //изменить , просмотреть все
     public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
         for (Table table : loadTables()) {
             if(table.getNo()==tableNo){
