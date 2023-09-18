@@ -18,4 +18,6 @@ public interface View {
      * @param reservationNo
      */
     void printReservationTableResult(int reservationNo);
+
+    void printСhangeReservationTableResult(int oldReservation,int tableNo,int reservationNo);
 }

@@ -17,6 +17,8 @@ public class Program {
         view.reservationTable(new Date(), 3, "Debil");
 
         view.changeReservationTable(3, new Date(), 1, "don");
+
+
     }
 }
 

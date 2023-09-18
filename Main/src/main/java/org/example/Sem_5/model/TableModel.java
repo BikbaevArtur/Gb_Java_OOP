@@ -35,8 +35,7 @@ public class TableModel implements Model {
      * @return номер брони
      */
     public int reservationTable(Date reservationData, int tableNo, String name) {
-        for (Table table : loadTables()
-        ) {
+        for (Table table : loadTables()) {
             if (table.getNo() == tableNo) {
                 Reservation reservation = new Reservation(reservationData, name);
                 table.getReservations().add(reservation);
@@ -51,23 +50,31 @@ public class TableModel implements Model {
 
     /**
      * Поменять бронь
-     * @param oldReservation номер старого резерва(для снятия)
+     *
+     * @param oldReservation  номер старого резерва(для снятия)
      * @param reservationDate дата резерва
-     * @param tableNo номер столика
-     * @param name имя
+     * @param tableNo         номер столика
+     * @param name            имя
      * @return
      */
 
     //изменить , просмотреть все
     public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
         for (Table table : loadTables()) {
-            if(table.getNo()==tableNo){
-                Reservation reservation = new Reservation(reservationDate,name);
-                table.getReservations().add(reservation);
-                return reservation.setId(oldReservation);
-
+            for (Reservation reservation : table.getReservations()) {
+                if (reservation.getId() == oldReservation) {
+                    table.getReservations().remove(reservation);
+                }
             }
         }
-        return -1;//временно
+        for (Table table : loadTables()) {
+            if (table.getNo() == tableNo) {
+                Reservation reservation = new Reservation(reservationDate, name);
+                table.getReservations().add(reservation);
+                return reservation.getId();
+            }
+        }
+
+        return -1;
     }
 }

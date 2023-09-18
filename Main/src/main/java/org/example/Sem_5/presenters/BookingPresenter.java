@@ -1,5 +1,6 @@
 package org.example.Sem_5.presenters;
 
+import org.example.Sem_5.model.Reservation;
 import org.example.Sem_5.model.Table;
 import org.example.Sem_5.model.TableModel;
 import org.example.Sem_5.view.BookingView;
@@ -30,6 +31,11 @@ public class BookingPresenter implements ViewObserver {
 
     }
 
+    public void updateChangeReservationResultUi(int oldReservation, int tableNo, int reservationId) {
+        bookingView.printСhangeReservationTableResult(oldReservation, tableNo, reservationId);
+    }
+
+
     @Override
     public void oneReservationTable(Date orderData, int tableNo, String name) {
         int reservetionNo = tableModel.reservationTable(orderData, tableNo, name);
@@ -38,8 +44,8 @@ public class BookingPresenter implements ViewObserver {
 
     @Override
     public void changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
-        int reservetionNo = tableModel.reservationTable(reservationDate, tableNo, name);
-        updateReservationResultUI(reservetionNo); // неправильно
+        int changReservationNo = tableModel.changeReservationTable(oldReservation, reservationDate, tableNo, name);
+        updateChangeReservationResultUi(oldReservation, tableNo, changReservationNo);
     }
 
 

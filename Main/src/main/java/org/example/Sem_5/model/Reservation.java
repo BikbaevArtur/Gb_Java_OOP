@@ -9,22 +9,20 @@ public class Reservation {
         id = ++count;
     }
 
+
+    private Date date;
+    private String name;
+
+
     public Reservation(Date date, String name) {
         this.date = date;
         this.name = name;
     }
 
-    private Date date;
-    private String name;
-
     public int getId() {
         return id;
     }
 
-    public int setId(int id) {
-        this.id = id;
-        return id;
-    }
 
     public Date getDate() {
         return date;
