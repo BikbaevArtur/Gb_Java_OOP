@@ -1,6 +1,15 @@
 package org.example.Seminar7.singleton;
 
 public class Program {
-    Setting setting1 = Setting.getInstance();
-    Setting setting2 = Setting.getInstance();
+
+    public static void main(String[] args) {
+
+        Settings settings1 = Settings.getInstance();
+
+        Settings settings2 = Settings.getInstance();
+
+        //Settings settings3 = new Settings("AAA", 12, false);
+
+    }
+
 }

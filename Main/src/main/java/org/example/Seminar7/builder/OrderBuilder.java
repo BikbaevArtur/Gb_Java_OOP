@@ -1,22 +1,29 @@
 package org.example.Seminar7.builder;
 
 public class OrderBuilder {
+
     private Order order;
 
     public OrderBuilder() {
         order = new Order();
     }
 
-    public Order builder(){
+    public Order build(){
 
-        if(order.getQnt()<=0){
-            throw new RuntimeException("Кол во позиций товара указано неверно");
+        if (order.getQnt() <= 0){
+            throw new RuntimeException("Кол-во позиций товара указано некорректно!");
+        }
+
+        if (order.getPrice() <= 0){
+            throw new RuntimeException("Цена товара указана некорректно!");
         }
 
         return order;
+
+
     }
 
-    public OrderBuilder setClientName(String clientName) {
+    public OrderBuilder setClientName(String clientName){
         order.setClientName(clientName);
         return this;
     }
@@ -26,10 +33,12 @@ public class OrderBuilder {
         return this;
     }
 
+
     public OrderBuilder setProductId(int productId) {
         order.setProductId(productId);
         return this;
     }
+
 
     public OrderBuilder setProductName(String productName) {
         order.setProductName(productName);
@@ -40,6 +49,7 @@ public class OrderBuilder {
         order.setQnt(qnt);
         return this;
     }
+
 
     public OrderBuilder setPrice(double price) {
         order.setPrice(price);

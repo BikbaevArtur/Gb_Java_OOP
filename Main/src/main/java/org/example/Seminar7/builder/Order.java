@@ -2,6 +2,7 @@ package org.example.Seminar7.builder;
 
 public class Order {
 
+
     public String getClientName() {
         return clientName;
     }
@@ -59,10 +60,18 @@ public class Order {
     }
 
     private String clientName;
+
     private String companyName;
+
     private int productId;
+
     private String productName;
+
     private int qnt;
+
     private double price;
+
+
     private boolean sign;
+
 }
